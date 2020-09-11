@@ -1,0 +1,30 @@
+body{
+	background-color:lightgrey;
+}
+
+main.row > div
+{
+	background-color:white;
+	padding:40px;
+}
+
+div.tab-content .row .col-3 ~ .col-9{
+	font-weight: bold;
+	border-bottom:solid lightgrey 1px;
+	box-sizing:border-box;
+	
+}
+div.tab-content .row{
+	margin:15 0;
+}
+
+footer.row{
+	line-height:60px;
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	margin:0;
+	background-color: darkgrey;
+	color:white;
+}
