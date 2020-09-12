@@ -1,22 +1,27 @@
-window.alert("js is here");
-function tabClickHandler(event){
-	if (!(event.currentTarget.classList.contains("active")))
-	{
-		tabDeactivator();
-		event.currentTarget.classList.add("active");
-	}
+class Nav {
 
+  constructor(root) {
+    this.navItems=root.querySelectorAll(".nav-item");
+    this.setEventListeners();
+  }
+
+  clickHandler(event) {
+    this.deactivateItems();
+    event.currentTarget.classList.add("active");
+  }
+
+  deactivateItems() {
+    for (const item of this.navItems) {
+      item.classList.remove("active");
+    }
+  }
+
+  setEventListeners() {
+    for (const item of this.navItems) {
+      item.addEventListener("click", this.clickHandler.bind(this));
+    }
+  }
 }
 
-function tabDeactivator(){
-	let tabSet = document.querySelectorAll(".nav .nav-item");
-	for (const tab of tabSet){
-		tab.classList.remove("active");
-	}
-}
-
-let tabSet = document.querySelectorAll(".nav .nav-item");
-for (const tab of tabSet){
-	tab.addEventListener("click", tabClickHandler);
-}
-
+const navBar=new Nav(document.querySelector("header div nav"));
+const navTabsBar=new Nav(document.querySelector("main div div"));
